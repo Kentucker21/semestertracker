@@ -16,16 +16,20 @@ import PurchasesInput from './components/PurchasesInput'
 import WeekOverView from './components/WeekOverView'
 import WkWrappedpopup from './components/WkWrappedpopup'
 import SemesterWrappedPopup from './components/SemesterWrappedPopup'
+import NewPurchasemessage from './components/NewPurchasemessage'
+import Purchasetable from './components/Purchasetable'
 
 function App() {
   //show Semester end popup
   const [showSemEnd,setShowSemEnd]=useState(false)
   const [semCreated,setSemCreated]=useState(false)
   const[weekCreated,setWeekCreated]=useState(false)
-  const [showWeekEnd,setShowWeekEnd]=useState(false)
 
-  const [showWrappedModal,setShowWrappedModal]=useState(true)
-  const [showSemesterWrapped,setShowSemesterWrapped]=useState(true)
+  const [showWeekEnd,setShowWeekEnd]=useState(false)
+  const [showPurchaseAdded,setShowPurchaseAdded]=useState(false)
+
+  const [showWrappedModal,setShowWrappedModal]=useState(false)
+  const [showSemesterWrapped,setShowSemesterWrapped]=useState(false)
   const [Json, setJson] = useState(() => {
   const stored = localStorage.getItem("SemesterJson");
   return stored ? JSON.parse(stored) : JsonMock();
@@ -50,15 +54,17 @@ useEffect(() => {
        semcreated={semCreated} setSemCreated={setSemCreated} setShowSemesterWrapped={setShowSemesterWrapped}/>
       <WeekInput Json={Json} setJson={setJson} weekCreated={weekCreated} setWeekCreated={setWeekCreated}
       showWeekEnd={showWeekEnd} setShowWeekEnd={setShowWeekEnd}  setShowWrappedModal={setShowWrappedModal}/>
-       <PurchasesInput Json={Json} setJson={setJson}/>
+       <PurchasesInput Json={Json} setJson={setJson} setShowPurchaseAdded={setShowPurchaseAdded}/>
        <SemesterOverview Json={Json} setJson={setJson}/>
        <WeekOverView Json={Json} setJson={setJson} />
+       <Purchasetable Json={Json}/>
     <WkWrappedpopup Json={Json} setJson={setJson} showWrappedModal={showWrappedModal} setShowWrappedModal={setShowWrappedModal}/>
     <SemesterWrappedPopup Json={Json} showSemesterWrapped={showSemesterWrapped} setShowSemesterWrapped={setShowSemesterWrapped}/>
     <EndSemestermessage showSemEnd={showSemEnd} setShowSemEnd={setShowSemEnd}/>
     <NewSemMessage semCreated={semCreated} setSemCreated={setSemCreated}/>
     <NewWeekMessage weekCreated={weekCreated} setWeekCreated={setWeekCreated}/>
     <EndWeekmessage showWeekEnd={showWeekEnd} setShowWeekEnd={setShowWeekEnd}/>
+    <NewPurchasemessage showPurchaseAdded={showPurchaseAdded} setShowPurchaseAdded={setShowPurchaseAdded}/>
   
     
     </div>

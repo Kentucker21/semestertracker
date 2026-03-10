@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Concat from '../util/Concat'
 
 export default function PurchasesInput(props) {
-  const {Json,setJson}=props
+  const {Json,setJson,setShowPurchaseAdded}=props
   const [purchaseInput,setPurchaseInput]=useState({
           id: "",
           name: "",
@@ -21,6 +21,7 @@ export default function PurchasesInput(props) {
       setActiveError(true)
     }else{
         setShowInput(true)
+        setActiveError(false)
     }
   }
 
@@ -56,6 +57,9 @@ export default function PurchasesInput(props) {
            }
         }
      }))
+
+     setShowInput(false)
+     setShowPurchaseAdded(true)
   }
     return (
         <div>
@@ -75,7 +79,7 @@ export default function PurchasesInput(props) {
 
 
       {activeError &&
-       <div className='text-red-400'>Error:No semester Or Week Active. Start a weekly or Semester Budget</div>
+       <div className='text-red-400 text-center mt-2'>Error:No semester Or Week Active. Start a weekly or Semester Budget</div>
       }
 
 

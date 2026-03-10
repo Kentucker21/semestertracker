@@ -25,12 +25,14 @@ export default function SemesterOverview(props) {
 
 
     
-
-    const fullDate=new Date(Json.semester.endsAt).toLocaleString('en-US',{
-  month:'long',
-  day:'numeric',
-  year:'numeric'
-});
+  const expiresAt = Json?.semester?.endsAt
+    const fullDate = expiresAt
+  ? new Date(expiresAt).toLocaleString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    })
+  : null
 
 const totalBudget=Json.semester.data.semesterBudget
 const totalSpent=Semestertotal(Json,Json.semester.id)
@@ -82,7 +84,12 @@ return (
   
   <div className='flex  w-[50%]  justify-between flex-col'>
  <h1 className="text-3xl font-bold text-blue-600 text-center mb-2  tracking-wide ">Overview</h1>
-<h2 className=" mb-4 text-xl text-blue-500 text-center">Expires: {fullDate}</h2>
+{fullDate && (
+  <h2 className="mb-4 text-xl text-blue-500 text-center">
+    Expires: {fullDate}
+  </h2>
+)}
+
 
 
   </div>

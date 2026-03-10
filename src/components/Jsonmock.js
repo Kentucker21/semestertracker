@@ -99,7 +99,7 @@ export default function JsonMock() {
           { id: "cat_rent", name: "Rent", limit: 800 }
         ],
 
-        // Optional but recommended (for PDFs & audits)
+        
         purchases: [
           {
             id: "pur_prev",
@@ -138,7 +138,7 @@ export default function JsonMock() {
           { id: "cat_rent", name: "Rent", limit: 800 }
         ],
 
-        // Optional but recommended (for PDFs & audits)
+        
         purchases: [
           {
             id: "pur_prev",
@@ -177,7 +177,7 @@ export default function JsonMock() {
           { id: "cat_rent", name: "Rent", limit: 800 }
         ],
 
-        // Optional but recommended (for PDFs & audits)
+        
         purchases: [
           {
             id: "pur_prev",

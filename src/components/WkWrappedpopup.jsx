@@ -42,8 +42,11 @@ const TWO_DAYS_MS = 2 * 24 * 60 * 60 * 1000;
 
 function isWrappedStillActive(endedAt) {
   if (!endedAt) return false;
-  return Date.now() - endedAt < TWO_DAYS_MS;
+
+  const endedTime = new Date(endedAt).getTime(); 
+  return Date.now() - endedTime < TWO_DAYS_MS;
 }
+
 
 
 

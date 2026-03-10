@@ -37,7 +37,7 @@ export default function ExpireWeek(prev) {
   const resetWeek = {
     id: "",
     semid: "",
-    createdAt: 0,
+    createdAt: null,
     expiresAt: 0,
     weeklyBudget: 0,
     savingsTarget: 0,
